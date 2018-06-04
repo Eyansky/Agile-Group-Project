@@ -5,7 +5,7 @@ import os
 import json
 import click
 import requests
-#from terminaltables import SingleTable
+from terminaltables import SingleTable
 
 URL = "http://127.0.0.1:5000/"
 
@@ -79,9 +79,9 @@ def login_user():
         click.secho('  SUCCESS!  ', bg='green', fg='white', bold=True)
         click.secho(output["message"], bg='white', fg='black', bold=True)
         file = open('TOKEN', 'w')
-        file.write( output["token"])
+        file.write(output["token"])
         file.close()
-        
+
     # If error
     else:
         click.secho('  SORRY!  ', bg='red', fg='white', bold=True)
@@ -99,7 +99,6 @@ def logout_user():
     #     URL + "logout", headers=headers)
 
     # output = result.json()
-    print(os.environ.get("TOKEN"))
     os.remove('TOKEN')
     # if output["status"] == "success":
     #     click.secho('  SUCCESS!  ', bg='green', fg='white', bold=True)
@@ -114,55 +113,64 @@ def logout_user():
 def comment():
     """User Comment Functions."""
 
-@comment.command('create')
-def create_comment():
-    """Creates a new user comment."""
-    click.clear()
-    click.secho('  Add a Comment  ', bg='green', fg='white', bold=True)
-
-    comment = click.prompt(click.style(
-        '>> Type in your comment... ', fg='yellow'), type=str)
-    # Get the payload
-    payload = {
-        "comment": username,
-        "password": password
-    }
-    headers = {'content-type': 'application/json'}
-    result = requests.post(
-        URL + "comments", data=json.dumps(payload), headers=headers)
-    output = result.json()
-    if output["status"] == "success":
-        click.secho('  SUCCESS!  ', bg='green', fg='white', bold=True)
-        click.secho(output["message"], bg='white', fg='black', bold=True)
-    # If errorpip
-    else:
-        click.secho('  SORRY!  ', bg='red', fg='white', bold=True)
-        click.secho(output["message"], bg='white', fg='black', bold=True)
-
-@cli.group()
-def comment():
-    """User Comment Functions."""
 
 @comment.command('create')
 def create_comment():
     """Creates a new user comment."""
     click.clear()
-    click.secho('  Add a Comment  ', bg='green', fg='white', bold=True)
+    click.secho('  New User Registration  ', bg='green', fg='white', bold=True)
+    the_comment = click.prompt(click.style(
+        '>> What is your comment? ', fg='yellow'), type=str)
+    file = open('TOKEN', 'r')
+    token = file.read()
 
-    comment = click.prompt(click.style(
-        '>> Type in your comment... ', fg='yellow'), type=str)
     # Get the payload
     payload = {
-        "comment": comment,
+        "username": the_comment
     }
-    headers = {'content-type': 'application/json'}
+    headers = {
+        'Authorization': 'Bearer {}'.format(token),
+        'content-type': 'application/json'
+    }
+
     result = requests.post(
-        URL + "comments", data=json.dumps(payload), headers=headers)
+        URL + "comments",
+        data=json.dumps(payload),
+        headers=headers
+    )
     output = result.json()
-    if output["status"] == "success":
+
+    if output["msg"] != "Token has expired":
         click.secho('  SUCCESS!  ', bg='green', fg='white', bold=True)
-        click.secho(output["message"], bg='white', fg='black', bold=True)
+        click.secho(output["msg"], bg='white', fg='black', bold=True)
     # If errorpip
     else:
         click.secho('  SORRY!  ', bg='red', fg='white', bold=True)
-        click.secho(output["message"], bg='white', fg='black', bold=True)
+        click.secho(output["msg"], bg='white', fg='black', bold=True)
+
+
+@comment.command('get')
+def get_comments():
+    """Gets all users comments."""
+    click.clear()
+    click.secho('  Get all user comments  ', bg='green', fg='white', bold=True)
+    file = open('TOKEN', 'r')
+    token = file.read()
+
+    headers = {
+        'Authorization': 'Bearer {}'.format(token)
+    }
+
+    result = requests.get(
+        URL + "comments",
+        headers=headers
+    )
+    output = result.json()
+
+    if output["status"] == "success":
+        click.secho('  Your comments!  ', bg='green', fg='white', bold=True)
+        print(output["comments"])
+    # If errorpip
+    else:
+        click.secho('  SORRY!  ', bg='red', fg='white', bold=True)
+        click.secho(output["msg"], bg='white', fg='black', bold=True)

@@ -34,10 +34,10 @@ def save_comment(data):
 
 def all_user_comments(username):
     """Method to get all user comments based on their usename"""
-    comment = [
-        comment for comment in COMMENTS_LIST if comment["username"] == username
-    ]
-    return comment
+    # comment = [
+    #     comment for comment in COMMENTS_LIST if comment["username"] == username
+    # ]
+    return COMMENTS_LIST
 
 
 def get_comment_by_id(username, comment_id):

@@ -34,8 +34,7 @@ def create_comment():
     # return response
     response_object = {
         "status": "success",
-        "msg": "New comment has been successfully added.",
-        "user": username
+        "msg": "New comment has been successfully added."
     }
     return make_response(jsonify(response_object)), 201
 
