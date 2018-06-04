@@ -124,35 +124,6 @@ def create_comment():
         '>> Type in your comment... ', fg='yellow'), type=str)
     # Get the payload
     payload = {
-        "comment": username,
-        "password": password
-    }
-    headers = {'content-type': 'application/json'}
-    result = requests.post(
-        URL + "comments", data=json.dumps(payload), headers=headers)
-    output = result.json()
-    if output["status"] == "success":
-        click.secho('  SUCCESS!  ', bg='green', fg='white', bold=True)
-        click.secho(output["message"], bg='white', fg='black', bold=True)
-    # If errorpip
-    else:
-        click.secho('  SORRY!  ', bg='red', fg='white', bold=True)
-        click.secho(output["message"], bg='white', fg='black', bold=True)
-
-@cli.group()
-def comment():
-    """User Comment Functions."""
-
-@comment.command('create')
-def create_comment():
-    """Creates a new user comment."""
-    click.clear()
-    click.secho('  Add a Comment  ', bg='green', fg='white', bold=True)
-
-    comment = click.prompt(click.style(
-        '>> Type in your comment... ', fg='yellow'), type=str)
-    # Get the payload
-    payload = {
         "comment": comment,
     }
     headers = {'content-type': 'application/json'}
