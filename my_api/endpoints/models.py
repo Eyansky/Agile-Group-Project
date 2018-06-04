@@ -10,36 +10,16 @@ USERS_LIST = []
 COMMENTS_LIST = []
 # Store the replies to the comments
 REPLIES_LIST = []
-
-
-class User(object):  # pylint: disable=too-few-public-methods
-    """ User Model for storing user related details """
-
-    def __init__(self, username, password):
-        self.type = 'User'
-        self.username = username
-        self.password = password
-
-
-class Comment(object):  # pylint: disable=too-few-public-methods
-    """Comment model for storing user comments"""
-
-    def __init__(self, comment):
-        self.comment = comment
-        self.username = ''
-
-
-class Replies(object):  # pylint: disable=too-few-public-methods
-    """Replies model for storing user replies"""
-
-    def __init__(self, reply):
-        self.reply = reply
-
+# Blacklist Tokens
+BLACKLIST = set()
 
 # Helper methods
+
+
 def save_user(data):
     """Add user"""
-    data['password'] = generate_password_hash(data['password'])
+    data["type"] = "User"
+    data["password"] = generate_password_hash(data["password"])
     # save to list
     USERS_LIST.append(data)
 
@@ -72,8 +52,8 @@ def get_comment_by_id(username, comment_id):
 def modify_user_comment(username, comment_id, comment):
     """Method that modifies a comment"""
     result = get_comment_by_id(username, comment_id)
-    result['comment'] = comment
-    result['date_updated'] = datetime.datetime.now()
+    result["comment"] = comment
+    result["date_updated"] = datetime.datetime.now()
 
 
 def delete_user_comment(username, comment_id):
@@ -86,7 +66,7 @@ def delete_user_comment(username, comment_id):
 def check_username(search_username):
     """Check if username exists in USERS_LIST"""
     for find_username in USERS_LIST:
-        if find_username['username'] == search_username:
+        if find_username["username"] == search_username:
             return True
     return False
 
@@ -94,15 +74,15 @@ def check_username(search_username):
 def check_username_for_login(search_username):
     """Return user username"""
     for find_username in USERS_LIST:
-        if find_username['username'] == search_username:
+        if find_username["username"] == search_username:
             return find_username
 
 
 def login(data):
     """Login method"""
     # Get user dictionary, assign it to variable
-    logging_user_details = check_username_for_login(data['username'])
-    if check_password_hash(logging_user_details['password'], data['password']):
+    logging_user_details = check_username_for_login(data["username"])
+    if check_password_hash(logging_user_details["password"], data["password"]):
         # compare password input to saved password
         return True
     return False
