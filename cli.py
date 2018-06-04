@@ -49,7 +49,7 @@ def register_user():
     if output["status"] == "success":
         click.secho('  SUCCESS!  ', bg='green', fg='white', bold=True)
         click.secho(output["message"], bg='white', fg='black', bold=True)
-    # If error
+    # If errorpip
     else:
         click.secho('  SORRY!  ', bg='red', fg='white', bold=True)
         click.secho(output["message"], bg='white', fg='black', bold=True)
@@ -78,8 +78,10 @@ def login_user():
     if output["status"] == "success":
         click.secho('  SUCCESS!  ', bg='green', fg='white', bold=True)
         click.secho(output["message"], bg='white', fg='black', bold=True)
-        os.environ["TOKEN"] = output["token"]
-        print(os.environ.get("TOKEN"))
+        file = open('TOKEN', 'w')
+        file.write( output["token"])
+        file.close()
+        
     # If error
     else:
         click.secho('  SORRY!  ', bg='red', fg='white', bold=True)
@@ -98,6 +100,7 @@ def logout_user():
 
     # output = result.json()
     print(os.environ.get("TOKEN"))
+    os.remove('TOKEN')
     # if output["status"] == "success":
     #     click.secho('  SUCCESS!  ', bg='green', fg='white', bold=True)
     #     click.secho(output["message"], bg='white', fg='black', bold=True)
