@@ -1,0 +1,11 @@
+$primarycolor: #eee;
+$darkcolor: #888;
+$color-primary-dark: #303a52;
+$color-accent: #9e579d;
+
+.slide {
+  perspective: 1000;
+  transform: perspective(1000px);
+  transform-style: preserve-3d;
+  transition: 0.5s cubic-bezier(0.05, 0.05, 0.05, 0.05);
+}

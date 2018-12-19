@@ -1,0 +1,13 @@
+export const ADD_ARTICLE = 'ADD_ARTICLES';
+export const GET_ARTICLES = 'GET_ARTICLES';
+export const WELCOME_NOTE = 'Welcome to Authors Haven';
+export const USER_IMAGE = 'https://ik.imagekit.io/bjklw4s1n/avatar_Syn0OVrJV.png';
+export const ReadMore = 'ReadMore';
+export const ADD_TAGS = 'ADD_TAGS';
+export const TitleHint = 'Title';
+export const VIEW_ARTICLE = 'VIEW_ARTICLE';
+export const DELETE_ARTICLE = 'DELETE_ARTICLE';
+export const DELETE_ARTICLE_SUCCESS = 'DELETE_ARTICLE_SUCCESS';
+export const DELETE_ARTICLE_FAILURE = 'DELETE_ARTICLE_FAILURE';
+export const DELETE_ARTICLE_REQUEST = 'DELETE_ARTICLE_REQUEST';
+export const UPDATE_ARTICLE = 'UPDATE_ARTICLE';

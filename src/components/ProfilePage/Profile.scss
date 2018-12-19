@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+$color-hover: #2ebaae;
+$color-background-body: #f4f4f4;
+$color-background-overlay: rgba(0, 0, 0, 0.7);
+$color-background-overlay-desc: #ccc;
+$color-background-scrollbar: #999;
+$color-background-post-image: #fff;
+$color-button: #444;
+$color-box-shadow: rgba(0, 0, 0, 0.25);
+$color-background-image: rgba(0, 0, 0, 0.4);
+$color-button-inactive: #bbb;
+$color-box-shadow-hover: rgba(0, 0, 0, 0.3);
+$color-box-shadow-profile-card: rgba(0, 0, 0, 0.26);
+
+* {
+  box-sizing: border-box;
+  transition: 0.3s cubic-bezier(0.75, 0, 0.2, 1), color 0.3s ease;
+}
+
+.rela-block {
+  display: block;
+  margin: auto;
+  position: relative;
+}
+
+.rela-inline {
+  color: $color-hover;
+  display: inline-block;
+  font-family: Poppins;
+  margin-right: 1em;
+  position: relative;
+}
+
+.floated {
+  display: inline-block;
+  float: left;
+  margin: false;
+  position: relative;
+}
+
+body {
+  background-color: $color-background-body;
+  font-family: Poppins;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  line-height: 24px;
+}
+
+.desc-title {
+  font-family: Poppins;
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  line-height: 28px;
+  margin-bottom: 5px;
+}
+
+.desc-author {
+  color: $color-background-post-image;
+  font-family: Poppins;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  line-height: 24px;
+  margin-bottom: 10px;
+}
+
+.container-profile {
+  background-color: $color-background-body;
+  margin: 70px auto;
+  max-width: 1126px;
+  padding: 70px 0;
+  width: 92%;
+  z-index: 1;
+}
+
+.profile-card {
+  background-color: $color-background-post-image;
+  box-shadow: 0 2px 6px -2px $color-box-shadow-profile-card;
+  margin: 70px auto 30px;
+  padding-top: 100px;
+  width: calc(100% - 40px);
+}
+
+.profile-pic {
+  background: url("../../assets/images/profile.png") center no-repeat;
+  background-size: cover;
+  border: 10px solid $color-background-post-image;
+  border-radius: 100%;
+  height: 180px;
+  left: 50%;
+  position: absolute;
+  top: -90px;
+  transform: translateX(-50%);
+  width: 180px;
+}
+
+.profile-name-container {
+  margin: 0 auto 10px;
+  padding: 10px;
+  text-align: center;
+}
+
+.user-name {
+  font-family: Poppins;
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: 3px;
+  line-height: 30px;
+  margin-bottom: 12px;
+}
+
+.user-desc {
+  color: $color-background-scrollbar;
+  letter-spacing: 1px;
+}
+
+.profile-card-stats {
+  height: 75px;
+  overflow: hidden;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.profile-stat {
+  height: 100%;
+  width: 33.3333%;
+
+  &::after {
+    color: $color-background-scrollbar;
+  }
+
+}
+
+.articles {
+
+  &::after {
+    content: " article(s)";
+  }
+
+}

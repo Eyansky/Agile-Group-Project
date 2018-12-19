@@ -1,0 +1,29 @@
+$color-main: #2ebaae;
+
+.outer {
+  clear: both;
+  display: block;
+  margin-left: 17em;
+  margin-top: 10%;
+  width: 50%;
+}
+
+.form-header { 
+  margin-bottom: 20em;
+  margin-left: 15.8em;
+  margin-top: 1em;
+  padding: 1em;
+}
+
+.form-content { 
+  margin-left: 15em;
+  margin-top: 2em;
+}
+
+.my-container { 
+  margin-left: -3em;
+}
+
+.mybtn { 
+  background-color: $color-main;
+}

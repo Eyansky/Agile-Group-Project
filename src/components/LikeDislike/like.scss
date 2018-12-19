@@ -1,0 +1,16 @@
+$thumbsup-color: #008000;
+$thumbsdown-color: #ff0000;
+
+#thumbsup:hover {
+  color: $thumbsup-color;
+  cursor: pointer;
+  }
+
+#thumbsdown:hover {
+  color: $thumbsdown-color;
+  cursor: pointer;
+  }
+
+.like-spinners {
+  font-size: 24px;
+  }

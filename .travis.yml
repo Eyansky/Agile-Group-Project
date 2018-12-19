@@ -1,0 +1,25 @@
+language: node_js
+node_js:
+  - "stable"
+cache:
+  directories:
+    - node_modules
+env:
+  global:
+    CC_TEST_REPORTER_ID=$report_id # get the test reporter id from the environment variable 'report_id' from code climate
+
+before_install:
+  - npm install --save-dev babel-preset-react
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter # make the test reporter file executable
+  - ./cc-test-reporter before-build # run the test reporter before build
+
+install:
+  - npm install   # Install npm dependencies
+
+# Run the test suites
+script:
+  - npm test -- --coverage
+
+after_script:
+ - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT # run the test reporter after build

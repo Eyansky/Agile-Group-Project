@@ -1,0 +1,307 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins");
+
+$color-primary: #f5f5f5;
+$color-font: #777;
+$color-main: #2ebaae;
+$color-bg: #fff;
+$color-underline: #999;
+$color-secondary: #222;
+$color-warning: #ff0000;
+
+.display-flex,
+.display-flex-center,
+.signup-content,
+.signin-content,
+.social-login,
+.socials {
+  display: flex;
+}
+
+.socials {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  background: $color-bg;
+  border-radius: 20px;
+  font-family: Poppins;
+  font-size: 16px;
+  margin-left: 4em;
+  margin-top: 4em;
+  width: 50%;
+}
+
+a:focus,
+a:active {
+  outline: none;
+  text-decoration: none;
+  transition: all 300ms ease 0s;
+}
+
+input,
+select,
+textarea {
+  outline: none;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+figure {
+  margin: 0;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+p {
+  color: $color-font;
+  font-size: 15px;
+  margin-bottom: 0;
+}
+
+h2 {
+  color: $color-secondary;
+  font-family: "Poppins";
+  font-size: 36px;
+  font-weight: bold;
+  line-height: 1.66;
+  margin: 0;
+  padding: 0;
+}
+
+.main {
+  background: $color-primary;
+  padding: 150px 0;
+}
+
+.clear {
+  clear: both;
+}
+
+body {
+  background: $color-primary;
+  color: $color-secondary;
+  font-family: Poppins;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.8;
+}
+
+.display-flex {
+  align-items: center;
+  justify-content: space-between;
+}
+
+.display-flex-center {
+  align-items: center;
+  justify-content: center;
+}
+
+.position-center {
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.signup,
+.sign-in {
+  margin-bottom: 8em;
+  margin-left: 5.5em;
+  margin-top: 5em;
+  width: 80%;
+}
+
+.signup-content {
+  padding: 85px 5px;
+}
+
+.signup-form,
+.signin-form,
+.signin-image {
+  overflow: hidden;
+  width: 50%;
+}
+
+.signup-image {
+  margin-left: -4em;
+  margin-top: 3em;
+}
+
+.form-title {
+  font-weight: bolder;
+  margin-bottom: 33px;
+}
+
+.form-submit {
+  background: $color-main;
+  border-bottom: 0;
+  border-radius: 5px;
+  color: $color-bg;
+  cursor: pointer;
+  display: inline-block;
+  float: left;
+  margin-top: 25px;
+  width: auto;
+}
+
+.signup-image-link {
+  color: $color-secondary;
+  display: block;
+  font-size: 14px;
+  text-align: center;
+}
+
+.term-service {
+  color: $color-secondary;
+  font-size: 13px;
+}
+
+.signup-form {
+  margin-left: 75px;
+  margin-right: 75px;
+  padding-left: 34px;
+}
+
+.register-form {
+  font-size: 12px;
+  width: 100%;
+}
+
+.form-group {
+  margin-bottom: 25px;
+  overflow: hidden;
+  position: relative;
+}
+
+.form-group:last-child {
+  margin-bottom: 0;
+}
+
+input {
+  border: 0;
+  border-bottom: 1px solid $color-underline;
+  box-sizing: border-box;
+  display: block;
+  font-family: Poppins;
+  font-size: 10px;
+  padding: 6px 30px;
+  width: 100%;
+}
+
+label {
+  color: $color-secondary;
+  left: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.signin-content {
+  padding: 85px 5px;
+}
+
+.signin-form {
+  margin-left: 75px;
+  margin-right: 75px;
+  padding-left: 34px;
+}
+
+.signin-image {
+  margin: 0 55px;
+  margin-left: 5em;
+  margin-top: 1em;
+  width: 120%;
+}
+
+@media screen and (max-width: 1200px) {
+  .container {
+    margin-left: 4em;
+    margin-top: 6em;
+    max-width: 100%;
+    width: calc(70% - 30px);
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .container {
+    margin-left: 4em;
+    margin-top: 4em;
+    max-width: 1200px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .signup-content,
+  .signin-content {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .signup-form {
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0 30px;
+  }
+
+  .signin-image {
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 50px;
+    order: 2;
+  }
+
+  .signup-form,
+  .signup-image,
+  .signin-form,
+  .signin-image {
+    width: auto;
+  }
+
+  .social-login {
+    justify-content: center;
+  }
+
+  .form-button {
+    text-align: left;
+  }
+
+  .signin-form {
+    margin-left: 0;
+    margin-right: 0;
+    order: 1;
+    padding: 0 30px;
+  }
+
+  .form-title {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .social-login {
+    flex-direction: column;
+  }
+
+  .social-label {
+    margin-bottom: 10px;
+    margin-right: 0;
+  }
+}
+
+.forgot-password {
+  padding-top: 2em;
+}
+
+.social-login {
+  margin-left: -1em;
+  margin-top: -1em;
+}
+
+.errors {
+  color: $color-warning;
+}

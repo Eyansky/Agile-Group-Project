@@ -1,0 +1,120 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins");
+// Color variables
+$color-primary: #f5f5f5;
+$color-font: #424242;
+$color-hover: #2ebaae;
+$color-overlay-desc-bg: #999;
+$color-white: #777;
+$color-footer-border: #d6d6d6;
+$color-body-bg: #f4f4f4;
+$color-border-overlay-desc: #ccc;
+$color-box-shadow-nav-bar: rgba(0, 0, 0, 0.3);
+$nav-color: #b2dfdb;
+
+.footer {
+  background-color: $color-primary;
+  border-top: 1px solid $color-footer-border;
+  bottom: 0;
+  color: $color-hover;
+  font-family: Poppins;
+  left: 0;
+  max-height: 50px;
+  overflow: hidden;
+  padding: 20px 30px;
+  position: fixed;
+  text-align: center;
+  width: 100%;
+}
+
+* {
+  box-sizing: border-box;
+  transition: 0.3s cubic-bezier(0.75, 0, 0.2, 1), color 0.3s ease;
+}
+
+.rela-inline {
+  color: $color-hover;
+  display: inline-block;
+  font-family: Poppins;
+  margin-right: 1em;
+  position: relative;
+}
+
+.floated {
+  display: inline-block;
+  float: left;
+  margin: false;
+  position: relative;
+  &.right {
+    float: right;
+  }
+}
+
+.horz-center {
+  bottom: false;
+  display: false;
+  left: 50%;
+  margin: false;
+  position: absolute;
+  right: false;
+  top: false;
+  transform: translateX(-50%);
+}
+
+body {
+  background-color: $color-body-bg;
+  font-family: Poppins;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  line-height: 24px;
+}
+
+.nav-bar {
+  background-color: $color-white;
+  box-shadow: 0 2px 18px $color-box-shadow-nav-bar;
+  color: $color-hover;
+  font-family: Poppins;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.nav-container {
+  border: $nav-color;
+  display: block;
+  height: 60%;
+  max-width: 1400px;
+  width: 100%;
+}
+
+.logo {
+  cursor: pointer;
+  font-family: Poppins;
+  font-size: 34px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 70px;
+  margin: 0 30px;
+  &:hover {
+    color: $color-hover;
+  }
+}
+
+.nav-div {
+  color: $color-overlay-desc-bg;
+  font-family: Poppins;
+  font-size: 17px;
+  font-weight: 400;
+  height: 70px;
+  letter-spacing: 2px;
+  line-height: 70px;
+  margin: 0 10px;
+  overflow: hidden;
+}
+
+.nav-links {
+  margin: 0;
+  width: 200px;
+}
