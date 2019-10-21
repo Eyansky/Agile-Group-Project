@@ -1,4 +1,4 @@
-# Design
+# Design:
 
 The project focuses on the following aspects:
 
